@@ -22,14 +22,11 @@ const Avatar = styled.img`
 	border-radius: 50%;
 	outline: 2px solid var(--color-grey-100);
 `;
-const fakeUser = {
-	fullName: 'test',
-	avatar: 'default-user.jpg',
-};
 
 function UserAvatar() {
 	const { user } = useUser();
-	const { fullName, avatar } = user.user_metadata || fakeUser;
+	if (!user) return;
+	const { fullName, avatar } = user.user_metadata;
 
 	return (
 		<StyledUserAvatar>
