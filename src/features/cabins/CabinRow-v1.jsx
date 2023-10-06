@@ -1,3 +1,5 @@
+/** @format */
+
 import styled from 'styled-components';
 import { useState } from 'react';
 import { HiPencil, HiSquare2Stack, HiTrash } from 'react-icons/hi2';
@@ -77,7 +79,10 @@ function CabinRow({ cabin }) {
 	return (
 		<>
 			<TableRow role='row'>
-				<img src={image} alt='cabin' />
+				<img
+					src={image}
+					alt='cabin'
+				/>
 				<Cabin>{name}</Cabin>
 				<div>Fits up to {maxCapacity} guests</div>
 				<Price>{formatCurrency(regularPrice)}</Price>

@@ -1,6 +1,4 @@
-/**
- * @prettier
- */
+/** @format */
 
 import { useState } from 'react';
 

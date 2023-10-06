@@ -1,3 +1,5 @@
+/** @format */
+
 import { useQuery } from '@tanstack/react-query';
 import { getCabins } from '../../services/apiCabins';
 import styled from 'styled-components';
@@ -32,7 +34,7 @@ function CabinTable() {
 	const {
 		isLoading,
 		data: cabins,
-		error,
+		// error,
 	} = useQuery({
 		queryKey: ['cabins'],
 		queryFn: getCabins,
@@ -51,7 +53,10 @@ function CabinTable() {
 				<div></div>
 			</TableHeader>
 			{cabins.map((cabin) => (
-				<CabinRow cabin={cabin} key={cabin.id} />
+				<CabinRow
+					cabin={cabin}
+					key={cabin.id}
+				/>
 			))}
 		</Table>
 	);

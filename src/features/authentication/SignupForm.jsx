@@ -1,3 +1,5 @@
+/** @format */
+
 import { useForm } from 'react-hook-form';
 import Button from '../../ui/Button';
 import Form from '../../ui/Form';
@@ -8,14 +10,17 @@ import { useSignup } from './useSignup';
 // Email regex: /\S+@\S+\.\S+/
 
 function SignupForm() {
-	const { signup, isLoading } = useSignup()
+	const { signup, isLoading } = useSignup();
 	const { register, formState, getValues, handleSubmit, reset } = useForm();
 	const { errors } = formState;
 
 	function onSubmit({ fullName, email, password }) {
-		signup({ fullName, email, password }, {
-			onSettled: () => reset(),
-		})
+		signup(
+			{ fullName, email, password },
+			{
+				onSettled: () => reset(),
+			}
+		);
 	}
 
 	return (
@@ -86,11 +91,10 @@ function SignupForm() {
 					disabled={isLoading}
 					variation='secondary'
 					type='reset'
-				onClick={reset}>
+					onClick={reset}>
 					Cancel
 				</Button>
-				<Button
-					disabled={isLoading}>Create new user</Button>
+				<Button disabled={isLoading}>Create new user</Button>
 			</FormRow>
 		</Form>
 	);

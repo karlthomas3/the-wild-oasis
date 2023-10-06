@@ -1,3 +1,5 @@
+/** @format */
+
 import styled from 'styled-components';
 import { format, isToday } from 'date-fns';
 
@@ -101,17 +103,13 @@ function BookingRow({
 					<Menus.List id={bookingId}>
 						<Menus.Button
 							icon={<HiEye />}
-							onClick={() => navigate(`/bookings/${bookingId}`)}
-						>
+							onClick={() => navigate(`/bookings/${bookingId}`)}>
 							See details
 						</Menus.Button>
 						{status === 'unconfirmed' && (
 							<Menus.Button
 								icon={<HiArrowDownOnSquare />}
-								onClick={() =>
-									navigate(`/checkin/${bookingId}`)
-								}
-							>
+								onClick={() => navigate(`/checkin/${bookingId}`)}>
 								Check in
 							</Menus.Button>
 						)}
@@ -121,15 +119,12 @@ function BookingRow({
 								onClick={() => {
 									checkout(bookingId);
 								}}
-								disabled={isCheckingOut}
-							>
+								disabled={isCheckingOut}>
 								Check out
 							</Menus.Button>
 						)}
 						<Modal.Open opens='delete'>
-							<Menus.Button icon={<HiTrash />}>
-								Delete booking
-							</Menus.Button>
+							<Menus.Button icon={<HiTrash />}>Delete booking</Menus.Button>
 						</Modal.Open>
 					</Menus.List>
 				</Menus.Menu>

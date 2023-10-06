@@ -1,3 +1,5 @@
+/** @format */
+
 import styled from 'styled-components';
 import Spinner from '../../ui/Spinner';
 import CabinRow from './CabinRow';
@@ -29,9 +31,7 @@ function CabinTable() {
 	const sortBy = searchParams.get('sortBy') || 'startDate-asc';
 	const [field, direction] = sortBy.split('-');
 	const modifier = direction === 'asc' ? 1 : -1;
-	sortedCabins = filteredCabins.sort(
-		(a, b) => a[field] - b[field] * modifier
-	);
+	sortedCabins = filteredCabins.sort((a, b) => a[field] - b[field] * modifier);
 
 	return (
 		<Menus>
@@ -47,7 +47,10 @@ function CabinTable() {
 				<Table.Body
 					data={sortedCabins}
 					render={(cabin) => (
-						<CabinRow cabin={cabin} key={cabin.id} />
+						<CabinRow
+							cabin={cabin}
+							key={cabin.id}
+						/>
 					)}
 				/>
 			</Table>

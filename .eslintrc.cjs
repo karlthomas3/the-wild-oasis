@@ -1,3 +1,5 @@
+/** @format */
+
 module.exports = {
 	root: true,
 	env: { browser: true, es2020: true },
@@ -18,6 +20,5 @@ module.exports = {
 			{ allowConstantExport: true },
 		],
 		'react/prop-types': 'off',
-		'no-unused-vars': 'off',
 	},
 };

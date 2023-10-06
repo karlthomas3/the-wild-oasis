@@ -1,3 +1,5 @@
+/** @format */
+
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
@@ -36,7 +38,9 @@ function CreateCabinForm() {
 
 	return (
 		<Form onSubmit={handleSubmit(onSubmit, onError)}>
-			<FormRow label='Cabin name' error={errors?.name?.message}>
+			<FormRow
+				label='Cabin name'
+				error={errors?.name?.message}>
 				<Input
 					type='text'
 					id='name'
@@ -48,8 +52,7 @@ function CreateCabinForm() {
 			</FormRow>
 			<FormRow
 				label='Maximum Capacity'
-				error={errors?.maxCapacity?.message}
-			>
+				error={errors?.maxCapacity?.message}>
 				<Input
 					type='number'
 					id='maxCapacity'
@@ -66,8 +69,7 @@ function CreateCabinForm() {
 
 			<FormRow
 				label='Regular price'
-				error={errors?.regularPrice?.message}
-			>
+				error={errors?.regularPrice?.message}>
 				<Input
 					type='number'
 					id='regularPrice'
@@ -82,7 +84,9 @@ function CreateCabinForm() {
 				/>
 			</FormRow>
 
-			<FormRow label='Discount' error={errors?.discount?.message}>
+			<FormRow
+				label='Discount'
+				error={errors?.discount?.message}>
 				<Input
 					type='number'
 					id='discount'
@@ -99,8 +103,7 @@ function CreateCabinForm() {
 
 			<FormRow
 				label='Description for website'
-				error={errors?.description?.message}
-			>
+				error={errors?.description?.message}>
 				<Textarea
 					type='number'
 					id='description'
@@ -124,7 +127,9 @@ function CreateCabinForm() {
 
 			<FormRow>
 				{/* type is an HTML attribute! */}
-				<Button variation='secondary' type='reset'>
+				<Button
+					variation='secondary'
+					type='reset'>
 					Cancel
 				</Button>
 				<Button disabled={isCreating}>Add cabin</Button>

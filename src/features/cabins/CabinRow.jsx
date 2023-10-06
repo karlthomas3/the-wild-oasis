@@ -1,5 +1,7 @@
+/** @format */
+
 import styled from 'styled-components';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { HiPencil, HiSquare2Stack, HiTrash } from 'react-icons/hi2';
 
 import { formatCurrency } from '../../utils/helpers';
@@ -39,7 +41,7 @@ const Discount = styled.div`
 `;
 
 function CabinRow({ cabin }) {
-	const [showForm, setShowForm] = useState(false);
+	// const [showForm, setShowForm] = useState(false);
 	const { isDeleting, deleteCabin } = useDeleteCabin();
 	const { isCreating, createCabin } = useCreateCabin();
 
@@ -67,7 +69,10 @@ function CabinRow({ cabin }) {
 	return (
 		<>
 			<Table.Row>
-				<img src={image} alt='cabin' />
+				<Img
+					src={image}
+					alt='cabin'
+				/>
 				<Cabin>{name}</Cabin>
 				<div>Fits up to {maxCapacity} guests</div>
 				<Price>{formatCurrency(regularPrice)}</Price>
@@ -85,21 +90,16 @@ function CabinRow({ cabin }) {
 								<Menus.Button
 									icon={<HiSquare2Stack />}
 									onClick={handleDuplicate}
-									disabled={isCreating}
-								>
+									disabled={isCreating}>
 									Duplicate
 								</Menus.Button>
 
 								<Modal.Open opens='edit'>
-									<Menus.Button icon={<HiPencil />}>
-										Edit
-									</Menus.Button>
+									<Menus.Button icon={<HiPencil />}>Edit</Menus.Button>
 								</Modal.Open>
 
 								<Modal.Open opens='delete'>
-									<Menus.Button icon={<HiTrash />}>
-										Delete
-									</Menus.Button>
+									<Menus.Button icon={<HiTrash />}>Delete</Menus.Button>
 								</Modal.Open>
 							</Menus.List>
 

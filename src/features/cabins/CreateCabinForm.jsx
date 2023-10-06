@@ -1,4 +1,9 @@
-/* eslint-disable no-undef */
+/**
+ * eslint-disable no-undef
+ *
+ * @format
+ */
+
 import { useForm } from 'react-hook-form';
 
 import Input from '../../ui/Input';
@@ -28,8 +33,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 	const isWorking = isCreating || isEditing;
 
 	function onSubmit(data) {
-		const image =
-			typeof data.image === 'string' ? data.image : data.image[0];
+		const image = typeof data.image === 'string' ? data.image : data.image[0];
 
 		if (isEditSession)
 			editCabin(
@@ -60,9 +64,10 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 	return (
 		<Form
 			onSubmit={handleSubmit(onSubmit, onError)}
-			type={onCloseModal ? 'modal' : 'regular'}
-		>
-			<FormRow label='Cabin name' error={errors?.name?.message}>
+			type={onCloseModal ? 'modal' : 'regular'}>
+			<FormRow
+				label='Cabin name'
+				error={errors?.name?.message}>
 				<Input
 					type='text'
 					id='name'
@@ -74,8 +79,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 			</FormRow>
 			<FormRow
 				label='Maximum Capacity'
-				error={errors?.maxCapacity?.message}
-			>
+				error={errors?.maxCapacity?.message}>
 				<Input
 					type='number'
 					id='maxCapacity'
@@ -92,8 +96,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 
 			<FormRow
 				label='Regular price'
-				error={errors?.regularPrice?.message}
-			>
+				error={errors?.regularPrice?.message}>
 				<Input
 					type='number'
 					id='regularPrice'
@@ -108,7 +111,9 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 				/>
 			</FormRow>
 
-			<FormRow label='Discount' error={errors?.discount?.message}>
+			<FormRow
+				label='Discount'
+				error={errors?.discount?.message}>
 				<Input
 					type='number'
 					id='discount'
@@ -124,8 +129,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 
 			<FormRow
 				label='Description for website'
-				error={errors?.description?.message}
-			>
+				error={errors?.description?.message}>
 				<Textarea
 					type='number'
 					id='description'
@@ -142,9 +146,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 					id='image'
 					accept='image/*'
 					{...register('image', {
-						required: isEditSession
-							? false
-							: 'This field is required',
+						required: isEditSession ? false : 'This field is required',
 					})}
 				/>
 			</FormRow>
@@ -154,8 +156,7 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 				<Button
 					variation='secondary'
 					type='reset'
-					onClick={() => onCloseModal?.()}
-				>
+					onClick={() => onCloseModal?.()}>
 					Cancel
 				</Button>
 				<Button disabled={isWorking}>

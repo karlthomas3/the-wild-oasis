@@ -1,6 +1,4 @@
-/**
- * @prettier
- */
+/** @format */
 
 import { createContext, useContext, useEffect } from 'react';
 import { useLocalStorageState } from '../hooks/useLocalStorageState';
@@ -19,8 +17,8 @@ function DarkModeProvider({ children }) {
 				document.documentElement.classList.add('dark-mode');
 				document.documentElement.classList.remove('light-mode');
 			} else {
-				document.documentElement.classList.remove('dark-mode');
 				document.documentElement.classList.add('light-mode');
+				document.documentElement.classList.remove('dark-mode');
 			}
 		},
 		[isDarkMode]
@@ -43,4 +41,5 @@ function useDarkMode() {
 		throw new Error('DarkModeContext was used outside of DarkModeProvider');
 	return context;
 }
+
 export { DarkModeProvider, useDarkMode };

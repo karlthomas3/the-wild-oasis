@@ -1,3 +1,5 @@
+/** @format */
+
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { getBookings } from '../../services/apiBookings';
 import { useSearchParams } from 'react-router-dom';
@@ -20,9 +22,7 @@ export function useBookings() {
 	const sortBy = { field, direction };
 
 	// pagination
-	const page = !searchParams.get('page')
-		? 1
-		: Number(searchParams.get('page'));
+	const page = !searchParams.get('page') ? 1 : Number(searchParams.get('page'));
 
 	const {
 		isLoading,

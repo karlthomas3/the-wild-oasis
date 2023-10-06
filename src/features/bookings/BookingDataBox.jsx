@@ -1,3 +1,5 @@
+/** @format */
+
 import styled from 'styled-components';
 import { format, isToday } from 'date-fns';
 import {
@@ -115,13 +117,7 @@ function BookingDataBox({ booking }) {
 		hasBreakfast,
 		observations,
 		isPaid,
-		guests: {
-			fullName: guestName,
-			email,
-			country,
-			countryFlag,
-			nationalID,
-		},
+		guests: { fullName: guestName, email, country, countryFlag, nationalID },
 		cabins: { name: cabinName },
 	} = booking;
 
@@ -147,11 +143,13 @@ function BookingDataBox({ booking }) {
 			<Section>
 				<Guest>
 					{countryFlag && (
-						<Flag src={countryFlag} alt={`Flag of ${country}`} />
+						<Flag
+							src={countryFlag}
+							alt={`Flag of ${country}`}
+						/>
 					)}
 					<p>
-						{guestName}{' '}
-						{numGuests > 1 ? `+ ${numGuests - 1} guests` : ''}
+						{guestName} {numGuests > 1 ? `+ ${numGuests - 1} guests` : ''}
 					</p>
 					<span>&bull;</span>
 					<p>{email}</p>
@@ -162,30 +160,25 @@ function BookingDataBox({ booking }) {
 				{observations && (
 					<DataItem
 						icon={<HiOutlineChatBubbleBottomCenterText />}
-						label='Observations'
-					>
+						label='Observations'>
 						{observations}
 					</DataItem>
 				)}
 
 				<DataItem
 					icon={<HiOutlineCheckCircle />}
-					label='Breakfast included?'
-				>
+					label='Breakfast included?'>
 					{hasBreakfast ? 'Yes' : 'No'}
 				</DataItem>
 
 				<Price $isPaid={isPaid}>
 					<DataItem
 						icon={<HiOutlineCurrencyDollar />}
-						label={`Total price`}
-					>
+						label={`Total price`}>
 						{formatCurrency(totalPrice)}
 
 						{hasBreakfast &&
-							` (${formatCurrency(
-								cabinPrice
-							)} cabin + ${formatCurrency(
+							` (${formatCurrency(cabinPrice)} cabin + ${formatCurrency(
 								extrasPrice
 							)} breakfast)`}
 					</DataItem>
@@ -195,9 +188,7 @@ function BookingDataBox({ booking }) {
 			</Section>
 
 			<Footer>
-				<p>
-					Booked {format(new Date(created_at), 'EEE, MMM dd yyyy, p')}
-				</p>
+				<p>Booked {format(new Date(created_at), 'EEE, MMM dd yyyy, p')}</p>
 			</Footer>
 		</StyledBookingDataBox>
 	);

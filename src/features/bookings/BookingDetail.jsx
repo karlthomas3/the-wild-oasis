@@ -1,3 +1,5 @@
+/** @format */
+
 import styled from 'styled-components';
 
 import BookingDataBox from './BookingDataBox';
@@ -33,8 +35,8 @@ function BookingDetail() {
 	const { deleteBooking, isDeleting } = useDeleteBooking();
 
 	if (isLoading) return <Spinner />;
-	if (!booking) return <Empty resourceName='booking' />
-	
+	if (!booking) return <Empty resourceName='booking' />;
+
 	const { status, id: bookingId } = booking;
 
 	const statusToTagName = {
@@ -48,9 +50,7 @@ function BookingDetail() {
 			<Row type='horizontal'>
 				<HeadingGroup>
 					<Heading as='h1'>Booking {bookingId}</Heading>
-					<Tag type={statusToTagName[status]}>
-						{status.replace('-', ' ')}
-					</Tag>
+					<Tag type={statusToTagName[status]}>{status.replace('-', ' ')}</Tag>
 				</HeadingGroup>
 				<ButtonText onClick={moveBack}>&larr; Back</ButtonText>
 			</Row>
@@ -69,8 +69,7 @@ function BookingDetail() {
 						onClick={() => {
 							checkout(bookingId);
 						}}
-						disabled={isCheckingOut}
-					>
+						disabled={isCheckingOut}>
 						Check out
 					</Button>
 				)}
@@ -93,7 +92,9 @@ function BookingDetail() {
 					</Modal.Window>
 				</Modal>
 
-				<Button variation='secondary' onClick={moveBack}>
+				<Button
+					variation='secondary'
+					onClick={moveBack}>
 					Back
 				</Button>
 			</ButtonGroup>
